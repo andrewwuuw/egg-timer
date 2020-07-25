@@ -8,8 +8,55 @@
 
 import UIKit
 
+var counter = 0
+var timerTest: Timer?
+let eggTimes = [
+    "Soft": 5,
+    "Medium": 8,
+    "Hard": 12
+]
+
 class ViewController: UIViewController {
+    //MARK: - UI
+    @IBOutlet weak var remainningTimeLabel: UILabel!
     
+    //MARK: - Actions
+    @IBAction func hardnessSelected(_ sender: UIButton) {
+        guard let senderTitle = sender.currentTitle, let eggTime = eggTimes[senderTitle] else { return }
+        
+        counter = eggTime
+        startTimer()
+    }
 
-
+    //MARK: - private methods
+    private func startTimer() {
+        NSLog("* Time Start")
+        remainningTimeLabel.text = "Remainning Time: \(counter)s"
+        guard timerTest == nil else { return }
+        timerTest = Timer.scheduledTimer(
+            timeInterval: 1.0,
+            target: self,
+            selector: #selector(costDownCounter),
+            userInfo: nil,
+            repeats: true
+        )
+    }
+    
+    private func stopTimer() {
+        NSLog("* Time Stop")
+        timerTest?.invalidate()
+        timerTest = nil
+        remainningTimeLabel.text = "Time out!"
+    }
+    
+    //MARK: - @objc methods
+    @objc func costDownCounter() {
+        if counter > 0 {
+            print("\(counter)s to the end of the world")
+            remainningTimeLabel.text = "Remainning Time: \(counter)s"
+            counter -= 1
+        } else {
+            stopTimer()
+        }
+    }
 }
