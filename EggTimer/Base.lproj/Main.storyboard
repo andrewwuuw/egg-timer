@@ -127,10 +127,17 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eT5-Xp-K8x">
+                                                <rect key="frame" x="0.0" y="137.33333333333326" width="343" height="2"/>
+                                                <color key="progressTintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </progressView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="C9B-cS-laq" firstAttribute="centerY" secondItem="nJN-th-c5K" secondAttribute="centerY" id="4bW-wA-H05"/>
-                                            <constraint firstItem="C9B-cS-laq" firstAttribute="centerX" secondItem="nJN-th-c5K" secondAttribute="centerX" id="se5-Cg-PE4"/>
+                                            <constraint firstItem="C9B-cS-laq" firstAttribute="centerX" secondItem="nJN-th-c5K" secondAttribute="centerX" id="1e9-Qx-Cph"/>
+                                            <constraint firstAttribute="trailing" secondItem="eT5-Xp-K8x" secondAttribute="trailing" id="5Vh-DS-8dU"/>
+                                            <constraint firstItem="C9B-cS-laq" firstAttribute="centerY" secondItem="nJN-th-c5K" secondAttribute="centerY" id="Jfn-wa-dUm"/>
+                                            <constraint firstItem="eT5-Xp-K8x" firstAttribute="leading" secondItem="nJN-th-c5K" secondAttribute="leading" id="dd4-8j-PPJ"/>
+                                            <constraint firstItem="eT5-Xp-K8x" firstAttribute="top" secondItem="C9B-cS-laq" secondAttribute="bottom" constant="10" id="wrs-Y6-Fnq"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -146,6 +153,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="progressBarView" destination="eT5-Xp-K8x" id="kIE-dc-bTf"/>
                         <outlet property="remainningTimeLabel" destination="C9B-cS-laq" id="GvW-64-BKT"/>
                     </connections>
                 </viewController>
